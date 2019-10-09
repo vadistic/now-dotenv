@@ -12,7 +12,9 @@ $ npm install -g now-dotenv
 
 ## Why
 
-[Now v2 Secrets](https://zeit.co/docs/v2/environment-variables-and-secrets) are great concept for safety and CI, but I'm kind of missing easy setup with `.env` files. With multiple staging enviroments and many dotenv configs - it can get a bit cumberstone.
+I did not feel like retyping secrets this morning... **I present you [`now-dotenv`](https://github.com/vadistic/now-dotenv)** It use Now API to sync your Now Secrets with .env files.
+
+[Now v2 Secrets](https://zeit.co/docs/v2/environment-variables-and-secrets) are great concept for safety and CI, but I'm kind of missing easy setup with `.env` files.
 
 ![alt text](https://imgs.xkcd.com/comics/is_it_worth_the_time.png)
 
