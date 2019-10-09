@@ -1,6 +1,6 @@
 # now-dotev
 
-> Simple cli tool for managing Zeit Now v2 secrets with dotenv files (supports multi-stages 🙌)
+> Handy cli tool for managing Zeit Now v2 secrets with dotenv files 🙌
 
 ## Install
 
@@ -68,7 +68,7 @@ Options:
   --json, -j       Sync now.stage.json (@default: true)                         [boolean]
   --overwrite, -o  Overwrite whole now.stage.json (@default: false)             [boolean]
   --codegen, -c    Path for proces.env typings (@default: disabled)             [string]
-  --verbose, -v    log verboose (@default: false)                               [boolean]
+  --verbose, -v    Log verboose (@default: false)                               [boolean]
 
 ```
 

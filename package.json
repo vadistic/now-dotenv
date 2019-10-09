@@ -1,6 +1,6 @@
 {
   "name": "now-dotenv",
-  "description": "Simple cli tool for managing Zeit Now v2 secrets with dotenv files (supports multi-stages 🙌)",
+  "description": "Handy cli tool for managing Zeit Now v2 secrets with dotenv files 🙌",
   "repository": "https://github.com/vadistic/now-dotenv",
   "author": "Jakub Wadas <vadistic@gmail.com>",
   "version": "0.1.1",
