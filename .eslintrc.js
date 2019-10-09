@@ -12,7 +12,6 @@ module.exports = {
 
   extends: [
     'eslint:recommended',
-    'plugin:react/recommended',
 
     // Use canned import rules
     'plugin:import/warnings',

@@ -1,15 +1,38 @@
 {
-  "name": "rewarp",
-  "description": "Simple cli tool for managing now secrets with dotenv files across stages.",
+  "name": "now-dotenv",
+  "description": "Simple cli tool for managing Zeit Now v2 secrets with dotenv files (supports multi-stages 🙌)",
   "repository": "https://github.com/vadistic/now-dotenv",
   "author": "Jakub Wadas <vadistic@gmail.com>",
   "version": "0.1.0",
-  "license": "No License",
-  "private": true,
+  "license": "MIT",
+  "private": false,
+  "bin": {
+    "now-dotenv": "dist/cli.js"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "source": "src/index.ts",
+  "scripts": {
+    "clean": "rm -rf dist",
+    "cli": "ts-node -P tsconfig.json src/cli",
+    "build": "tsc -p tsconfig.json",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "eslint src/**/*.ts",
+    "test": "jest"
+  },
+  "dependencies": {
+    "dedent": "^0.7.0",
+    "dotenv": "^8.1.0",
+    "node-fetch": "^2.6.0",
+    "yargs": "^14.2.0"
+  },
   "devDependencies": {
+    "@types/dedent": "^0.7.0",
+    "@types/dotenv": "^6.1.1",
     "@types/jest": "24.0.18",
     "@types/node": "^12.7.12",
     "@types/node-fetch": "^2.5.2",
+    "@types/yargs": "^13.0.3",
     "@typescript-eslint/eslint-plugin": "^2.3.1",
     "@typescript-eslint/parser": "^2.3.1",
     "eslint": "^6.5.0",
@@ -17,11 +40,8 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-prettier": "^3.1.1",
     "jest": "^24.9.0",
+    "prettier": "^1.18.2",
     "ts-node": "^8.4.1",
     "typescript": "^3.6.3"
-  },
-  "dependencies": {
-    "dotenv": "^8.1.0",
-    "node-fetch": "^2.6.0"
   }
 }
