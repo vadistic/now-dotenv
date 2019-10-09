@@ -12,13 +12,9 @@ $ npm install -g now-dotenv
 
 ## Why
 
-I did not feel like retyping secrets this morning... **I present you [`now-dotenv`](https://github.com/vadistic/now-dotenv)** It use Now API to sync your Now Secrets with .env files.
+I did not feel like retyping secrets this morning... So I wrote CLI that use Now API to sync your Now Secrets with `.env` files.
 
-[Now v2 Secrets](https://zeit.co/docs/v2/environment-variables-and-secrets) are great concept for safety and CI, but I'm kind of missing easy setup with `.env` files.
-
-![alt text](https://imgs.xkcd.com/comics/is_it_worth_the_time.png)
-
-_It's veeeery specific tool but apperently it was still (barely) worth it :)_
+[Now v2 Secrets](https://zeit.co/docs/v2/environment-variables-and-secrets) are great concept for safety and CI, but `now secrets add` is quite cumberstone.
 
 ## Features
 
@@ -30,28 +26,70 @@ _It's veeeery specific tool but apperently it was still (barely) worth it :)_
 
 ## Usage
 
+#### Basic
+
 ```bash
-  # Main
-
   $ now-dotenv -t TOKEN
-  # Or
-  $ now-dotenv sync -t TOKEN
+  # or
+  $ now-dotenv sync --token TOKEN
 
-  # Additional commands
+```
 
-  # Only codegen
-  $ now-dotenv codegen -t TOKEN
-  # Only delete tokens (--all for all stages)
+```bash
+  # GIVEN
+
+  # .env
+  MY_SECRET="ABC"
+
+  # RESULT
+
+  # now api
+  $ now secrets ls
+
+  @projectname-my-secret 0d ago
+
+  # now.json
+  {
+    ...
+    env: {
+      ...untouchedPreviousEnvs
+      my-secret: @projectname-my-secret
+    }
+  }
+```
+
+#### Some custom use-case
+
+```bash
+  $ now-dotenv sync \
+      --token TOKEN \
+      # namespace as stage "prod"
+      --stage prod \
+      # show .env file location (.env.prod would be default)
+      --env ../.env.production
+      # show now.json location (now.prod.json would be default)
+      --project now.production.json \
+      # sync now.production.json with now.json (whole, not just envs)
+      --owerwrite
+      # codegen typings for process.env
+      --codegen \
+      # log verboose
+      --verbose \
+
+```
+
+#### Only delete secrets
+
+```bash
   $ now-dotenv reset -t TOKEN
+  # for all stages
+  $ now-dotenv reset -t TOKEN --all
+```
 
-  # Examples
+#### Only codegen typings for `process.env`
 
-  # stage production/ modified env file location
-  $ now-dotenv -t TOKEN -s prod -e .env.production
-  # stage dev/ overwite now.dev.json/ codegen typings
-  $ now-dotenv -t TOKEN -s dev -o -c ./types/env.d.ts
-  # disable json stuff - only sync api/ log verbose
-  $ now-dotenv -t TOKEN --json false -v
+```bash
+  $ now-dotenv codegen -t TOKEN --codegen ./types/env.d.ts
 ```
 
 ## Options
@@ -97,3 +135,11 @@ await api.clear()
 /** Generates proces.env typings */
 api.codegen()
 ```
+
+## Future
+
+_Not really, It was already crazy to write this incerdibly specific tool :)_
+
+Btw. you can help Zeit spec out new env system: https://github.com/zeit/now/issues/2613
+
+![xkcd automation comic](https://imgs.xkcd.com/comics/is_it_worth_the_time.png)
