@@ -2,6 +2,14 @@
 
 > Simple cli tool for managing Zeit Now v2 secrets with dotenv files (supports multi-stages 🙌)
 
+## Install
+
+```
+$ yarn global add now-dotenv
+
+$ npm install -g now-dotenv
+```
+
 ## Why
 
 [Now v2 Secrets](https://zeit.co/docs/v2/environment-variables-and-secrets) are great concept for safety and CI, but I'm kind of missing easy setup with `.env` files. With multiple staging enviroments and many dotenv configs - it can get a bit cumberstone.

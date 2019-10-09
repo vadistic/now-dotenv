@@ -3,7 +3,7 @@
   "description": "Simple cli tool for managing Zeit Now v2 secrets with dotenv files (supports multi-stages 🙌)",
   "repository": "https://github.com/vadistic/now-dotenv",
   "author": "Jakub Wadas <vadistic@gmail.com>",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "private": false,
   "bin": {
@@ -19,7 +19,7 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint src/**/*.ts",
     "test": "jest",
-    "prepublish": "yarn lint && yarn format && yarn clean && yarn build"
+    "prepare": "yarn lint && yarn format && yarn clean && yarn build"
   },
   "dependencies": {
     "dedent": "^0.7.0",
