@@ -18,7 +18,8 @@
     "build": "tsc -p tsconfig.json",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint src/**/*.ts",
-    "test": "jest"
+    "test": "jest",
+    "prepublish": "yarn lint && yarn format && yarn clean && yarn build"
   },
   "dependencies": {
     "dedent": "^0.7.0",

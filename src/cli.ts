@@ -9,6 +9,8 @@ cli.scriptName(`now-dotenv`)
 cli.usage(dedent`
     now-dotenv
 
+    Simple cli tool for managing Zeit Now v2 secrets with dotenv files (supports multi-stages 🙌)
+
     Project README: https://github.com/vadistic/now-dotenv
   `)
 
