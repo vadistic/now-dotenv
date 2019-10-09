@@ -1,0 +1,27 @@
+{
+  "name": "rewarp",
+  "description": "Simple cli tool for managing now secrets with dotenv files across stages.",
+  "repository": "https://github.com/vadistic/now-dotenv",
+  "author": "Jakub Wadas <vadistic@gmail.com>",
+  "version": "0.1.0",
+  "license": "No License",
+  "private": true,
+  "devDependencies": {
+    "@types/jest": "24.0.18",
+    "@types/node": "^12.7.12",
+    "@types/node-fetch": "^2.5.2",
+    "@typescript-eslint/eslint-plugin": "^2.3.1",
+    "@typescript-eslint/parser": "^2.3.1",
+    "eslint": "^6.5.0",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "jest": "^24.9.0",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.3"
+  },
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "node-fetch": "^2.6.0"
+  }
+}
