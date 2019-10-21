@@ -308,7 +308,7 @@ export class NowDotenv {
   }
 
   private readEnvs() {
-    const path = this.options.env || this.options.stage ? `.env.${this.options.stage}` : '.env'
+    const path = this.options.env || (this.options.stage ? `.env.${this.options.stage}` : '.env')
 
     const { parsed, error } = dotenv.config({ path })
 
