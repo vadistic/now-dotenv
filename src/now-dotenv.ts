@@ -43,7 +43,7 @@ export class NowDotenv {
       'Content-Type': 'application/json',
     }
 
-    this.log(`Executing for project '${this.projectName}' with prefix '${this.prefix}'`)
+    this.log(`NowDotenv for project '${this.projectName}' with prefix '${this.prefix}'`)
   }
 
   /** PUBLIC */
@@ -177,11 +177,11 @@ export class NowDotenv {
     let json = this.readNowJson({ staged: false })
 
     if (!json) {
-      throw Error(`now.json must be present to create or overwrite ${this.nowJsonName}`)
+      throw Error(`Cannot create or overwrite ${this.nowJsonName} because now.json is not present`)
     }
 
     if (!this.options.stage && !this.options.project) {
-      throw Error(`provide stage or now json path to use overwrite option`)
+      throw Error(`Provide --stage or now --json to use overwrite option`)
     }
 
     if (!json.env) {

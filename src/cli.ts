@@ -82,7 +82,7 @@ cli.options({
     alias: 'v',
     required: false,
     type: 'boolean',
-    description: `log verboose (@default: false)`,
+    description: `Log verboose (@default: false)`,
   },
 })
 
@@ -101,9 +101,15 @@ cli.command(`reset`, `Delete Now Secrets`, reset =>
 )
 
 cli.example(`now-dotenv --token TOKEN`, `minimal/ no staging`)
-cli.example(`now-dotenv -t TOKEN -s prod -e .env.production`, `stage production/ modified env file location`)
-cli.example(`now-dotenv -t TOKEN -s dev -o -c ./types/env.d.ts`, `stage dev/ overwite now.dev.json/ codegen typings `)
-cli.example(`now-dotenv -t TOKEN --json false -v`, `disable json stuff - only sync api / log verbose`)
+cli.example(
+  `now-dotenv --token TOKEN --stage prod --env .env.production`,
+  `stage production / specified env file location`,
+)
+cli.example(
+  `now-dotenv --token TOKEN --stage dev --overwrite --codegen ./types/env.d.ts`,
+  `stage dev/ overwite now.dev.json / codegen typings `,
+)
+cli.example(`now-dotenv --token TOKEN --json false --verbose`, `disable now json stuff (only sync api) / log verbose`)
 
 cli.recommendCommands()
 
@@ -140,12 +146,12 @@ const main = async () => {
     if (argv._[0] === 'sync' || argv._[0] === undefined) {
       await api.exec()
 
-      console.log(`Done!`)
+      console.log(`NowDotenv: Done!`)
       return
     }
   } catch (e) {
-    console.warn(`Some problems...\n`)
-    console.warn(e)
+    console.error(`Some problems...\n`)
+    console.error(e)
     return
   }
 

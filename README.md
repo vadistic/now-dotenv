@@ -14,7 +14,7 @@ $ npm install -g now-dotenv
 
 I did not feel like retyping secrets this morning... So I wrote CLI that use Now API to sync your Now Secrets with `.env` files.
 
-[Now v2 Secrets](https://zeit.co/docs/v2/environment-variables-and-secrets) are great concept for safety and CI, but `now secrets add` is quite cumberstone.
+[Now v2 Secrets](https://zeit.co/docs/v2/environment-variables-and-secrets) are great concept for safety and CI, but `now secrets add` is quite cumberstone. Here's the fix!
 
 ## Features
 
@@ -36,19 +36,18 @@ I did not feel like retyping secrets this morning... So I wrote CLI that use Now
 ```
 
 ```bash
-  # GIVEN
-
   # .env
   MY_SECRET="ABC"
 
-  # RESULT
+  # run now-dotenv
+  $ now-dotenv -t TOKEN
+  > NowDotenv: Done!
 
-  # now api
+  # now api is updated
   $ now secrets ls
+  > @projectname-my-secret 0d ago
 
-  @projectname-my-secret 0d ago
-
-  # now.json
+  # now.json is also updated
   {
     ...
     env: {
@@ -70,7 +69,7 @@ I did not feel like retyping secrets this morning... So I wrote CLI that use Now
       # show now.json location (now.prod.json would be default)
       --project now.production.json \
       # sync now.production.json with now.json (whole, not just envs)
-      --owerwrite
+      --owerwrite \
       # codegen typings for process.env
       --codegen \
       # log verboose
