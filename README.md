@@ -1,4 +1,4 @@
-# now-dotev
+# now-dotenv
 
 > Handy cli tool for managing Zeit Now v2 secrets with dotenv files 🙌
 
