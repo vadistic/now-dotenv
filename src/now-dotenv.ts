@@ -86,7 +86,7 @@ export class NowDotenv {
     const prev = await this.apiGetSecrets()
     const deduped = this.dedupeSecrets(prev, { staged })
 
-    await Promise.all(deduped.map(async secret => this.apiDeleteSecret(secret.name)))
+    await Promise.all(deduped.map(async (secret) => this.apiDeleteSecret(secret.name)))
 
     this.log(`Now secrets deleted!`)
   }
@@ -162,7 +162,7 @@ export class NowDotenv {
       json = { ...json, env: {} }
     }
 
-    Object.keys(this.envs).forEach(name => {
+    Object.keys(this.envs).forEach((name) => {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       json!.env![name] = '@' + this.formatName(name)
     })
@@ -188,7 +188,7 @@ export class NowDotenv {
       json = { ...json, env: {} }
     }
 
-    Object.keys(this.envs).forEach(name => {
+    Object.keys(this.envs).forEach((name) => {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       json!.env![name] = '@' + this.formatName(name)
     })
@@ -211,7 +211,7 @@ export class NowDotenv {
     res += `declare namespace NodeJS {\n`
     res += `  interface ProcessEnv {\n`
 
-    Object.keys(this.envs).forEach(fieldname => {
+    Object.keys(this.envs).forEach((fieldname) => {
       res += `    ${fieldname}: string\n`
     })
 

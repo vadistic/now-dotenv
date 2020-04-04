@@ -90,7 +90,7 @@ cli.command(`sync`, `Main (can be skipped)`)
 
 cli.command(`codegen`, `Only codegen`)
 
-cli.command(`reset`, `Delete Now Secrets`, reset =>
+cli.command(`reset`, `Delete Now Secrets`, (reset) =>
   reset.options({
     all: {
       type: 'boolean',
