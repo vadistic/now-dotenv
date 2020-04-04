@@ -69,7 +69,7 @@ I did not feel like retyping secrets this morning... So I wrote CLI that use Now
       # show now.json location (now.prod.json would be default)
       --project now.production.json \
       # sync now.production.json with now.json (whole, not just envs)
-      --owerwrite \
+      --overwrite \
       # codegen typings for process.env
       --codegen \
       # log verboose
