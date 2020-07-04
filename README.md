@@ -2,6 +2,12 @@
 
 > Handy cli tool for managing Zeit Now v2 secrets with dotenv files 🙌
 
+## DERPECIATED
+
+Because Vercel has new / better env support :) 
+
+https://vercel.com/blog/environment-variables-ui
+
 ## Install
 
 ```
